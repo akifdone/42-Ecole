@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdone <mdone@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/10 20:11:26 by mdone             #+#    #+#             */
-/*   Updated: 2023/02/10 20:11:27 by mdone            ###   ########.fr       */
+/*   Created: 2023/02/12 03:09:17 by mdone             #+#    #+#             */
+/*   Updated: 2023/02/12 03:09:18 by mdone            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_alpha(char *str)
-
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int	count;
+	unsigned int	count;
+	unsigned int	index;
 
 	count = 0;
-	while (str[count] != '\0')
+	while (dest[count] != '\0')
 	{
-		if ((str[count] >= 'a' || str[count] >= 'A')
-			&& (str[count] <= 'z' || str[count] <= 'Z'))
-		{
-			++count;
-		}
-		else
-		{
-			return (0);
-		}	
+		++count;
 	}
-	return (1);
+	index = 0;
+	while (src[index] != '\0' && index < nb)
+	{
+		dest[count] = src[index];
+		++count;
+		++index;
+	}
+	dest[count] = '\0';
+	return (dest);
 }

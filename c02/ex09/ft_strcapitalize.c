@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdone <mdone@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/10 20:11:26 by mdone             #+#    #+#             */
-/*   Updated: 2023/02/10 20:11:27 by mdone            ###   ########.fr       */
+/*   Created: 2023/02/11 19:37:30 by mdone             #+#    #+#             */
+/*   Updated: 2023/02/11 19:37:31 by mdone            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_alpha(char *str)
-
+char	*ft_strcapitalize(char *str)
 {
 	int	count;
 
 	count = 0;
+	if (str[count] >= 'a' && str[count] <= 'z')
+		str[count] -= 32;
+	++count;
 	while (str[count] != '\0')
 	{
-		if ((str[count] >= 'a' || str[count] >= 'A')
-			&& (str[count] <= 'z' || str[count] <= 'Z'))
+		if (str[count] >= 'a' && str[count] <= 'z')
 		{
-			++count;
+			if (!(str[count - 1] >= 'a' && str[count - 1] <= 'z'))
+				if (!(str[count - 1] >= 'A' && str[count - 1] <= 'Z'))
+					if (!(str[count - 1] >= '0' && str[count - 1] <= '9'))
+						str[count] -= 32;
 		}
-		else
-		{
-			return (0);
-		}	
+		else if (str[count] >= 'A' && str[count] <= 'Z')
+			str[count] += 32;
+		++count;
 	}
-	return (1);
+	return (str);
 }

@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdone <mdone@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/10 20:11:26 by mdone             #+#    #+#             */
-/*   Updated: 2023/02/10 20:11:27 by mdone            ###   ########.fr       */
+/*   Created: 2023/02/12 00:44:20 by mdone             #+#    #+#             */
+/*   Updated: 2023/02/12 00:44:21 by mdone            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_alpha(char *str)
-
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	int	count;
+	unsigned int	count;
+	unsigned int	i;
 
 	count = 0;
-	while (str[count] != '\0')
+	i = 0;
+	while (src[count] != '\0')
+		count++;
+	if (size != 0)
 	{
-		if ((str[count] >= 'a' || str[count] >= 'A')
-			&& (str[count] <= 'z' || str[count] <= 'Z'))
+		while (src[i] != '\0' && i < (size - 1))
 		{
-			++count;
+			dest[i] = src[i];
+			i++;
 		}
-		else
-		{
-			return (0);
-		}	
+		dest[i] = '\0';
 	}
-	return (1);
+	return (count);
 }

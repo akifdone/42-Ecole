@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdone <mdone@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/10 20:11:26 by mdone             #+#    #+#             */
-/*   Updated: 2023/02/10 20:11:27 by mdone            ###   ########.fr       */
+/*   Created: 2023/02/12 05:17:30 by mdone             #+#    #+#             */
+/*   Updated: 2023/02/12 05:17:31 by mdone            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_alpha(char *str)
-
+char	*ft_strstr(char *str, char *to_find)
 {
+	int	index;
 	int	count;
 
-	count = 0;
-	while (str[count] != '\0')
+	index = 0;
+	while (str[index] != '\0')
 	{
-		if ((str[count] >= 'a' || str[count] >= 'A')
-			&& (str[count] <= 'z' || str[count] <= 'Z'))
+		count = 0;
+		if (to_find[count] == str[index])
 		{
-			++count;
+			while (str[count + index] == to_find[count])
+			{
+				++count;
+				if (to_find[count] == '\0')
+					return (&str[index]);
+			}
 		}
-		else
-		{
-			return (0);
-		}	
+		++index;
 	}
-	return (1);
+	return (0);
 }
