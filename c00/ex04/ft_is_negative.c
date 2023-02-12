@@ -6,9 +6,10 @@
 /*   By: mdone <mdone@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 11:13:45 by mdone             #+#    #+#             */
-/*   Updated: 2023/02/05 11:13:47 by mdone            ###   ########.fr       */
+/*   Updated: 2023/02/06 10:58:20 by mdone            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <unistd.h>
 
 void	ft_is_negative(int n)
@@ -21,5 +22,4 @@ void	ft_is_negative(int n)
 	{
 		write (1, &"N", 1);
 	}
-	write (1, "\n", 1);
 }

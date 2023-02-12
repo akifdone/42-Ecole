@@ -1,43 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_ft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdone <mdone@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 11:25:01 by mdone             #+#    #+#             */
-/*   Updated: 2023/02/06 11:20:50 by mdone            ###   ########.fr       */
+/*   Created: 2023/02/09 11:23:02 by mdone             #+#    #+#             */
+/*   Updated: 2023/02/10 10:55:25 by mdone            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+#include <stdio.h>
+void	ft_ft(int *nbr)
 {
-	write (1, &c, 1);
+	*nbr = 42;
 }
-
-void	ft_putnbr(int nb)
+int main ()
 {
-	if (nb == -2147483648)
-	{
-		ft_putchar('-');
-		ft_putchar('2');
-		ft_putnbr(147483648);
-	}
-	else if (nb < 0)
-	{
-		ft_putchar('-');
-		nb = -nb;
-		ft_putnbr(-nb);
-	}
-	else if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-	else
-	{
-		ft_putchar(nb + '0');
-	}
+	int sayi;
+	int *nbr = &sayi;
+
+ 	ft_ft(&sayi);
+	printf("%d",sayi);
 }

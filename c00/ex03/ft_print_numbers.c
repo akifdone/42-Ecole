@@ -21,5 +21,4 @@ void	ft_print_numbers(void)
 		write (1, &x, 1);
 		x++;
 	}
-	write (1, "\n", 1);
 }

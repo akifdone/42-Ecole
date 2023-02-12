@@ -6,9 +6,10 @@
 /*   By: mdone <mdone@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 16:26:22 by mdone             #+#    #+#             */
-/*   Updated: 2023/02/05 16:26:23 by mdone            ###   ########.fr       */
+/*   Updated: 2023/02/06 12:05:18 by mdone            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <unistd.h>
 
 void	ft_print_comb(void)
@@ -37,5 +38,8 @@ void	ft_print_comb(void)
 		}
 		a++;
 	}
-	write (1, "\n", 1);
+}
+int main()
+{
+	ft_print_comb();
 }

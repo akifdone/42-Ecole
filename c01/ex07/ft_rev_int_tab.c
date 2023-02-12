@@ -1,43 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdone <mdone@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 11:25:01 by mdone             #+#    #+#             */
-/*   Updated: 2023/02/06 11:20:50 by mdone            ###   ########.fr       */
+/*   Created: 2023/02/09 11:47:34 by mdone             #+#    #+#             */
+/*   Updated: 2023/02/09 11:47:34 by mdone            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+void	ft_rev_int_tab(int *tab, int size)
 {
-	write (1, &c, 1);
-}
+	int	count;
+	int	n;
 
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
+	count = 0;
+	while (count < size / 2)
 	{
-		ft_putchar('-');
-		ft_putchar('2');
-		ft_putnbr(147483648);
-	}
-	else if (nb < 0)
-	{
-		ft_putchar('-');
-		nb = -nb;
-		ft_putnbr(-nb);
-	}
-	else if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-	else
-	{
-		ft_putchar(nb + '0');
+		n = tab[count];
+		tab[count] = tab[size - 1 - count];
+		tab[size - 1 - count] = n;
+		++count;
 	}
 }

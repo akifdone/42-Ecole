@@ -9,6 +9,7 @@
 /*   Updated: 2023/02/05 02:49:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <unistd.h>
 
 void	ft_print_alphabet(void)
@@ -21,5 +22,4 @@ void	ft_print_alphabet(void)
 		write (1, &c, 1);
 		c++;
 	}
-	write (1, "\n", 1);
 }
